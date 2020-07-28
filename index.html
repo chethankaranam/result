@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MITS RESULTS</title>
+	<link rel="icon" href="images/BB.jpg" type="image/icon type">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Lexend+Zetta&family=Raleway&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+	<script src="js/1-1_Sem.js"></script>
+	<script src="js/1-2_Sem.js"></script>
+	<script src="js/2-1_Sem.js"></script>
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	
+</head>
+<body style="background-image:url(images/BB.jpg);">
+
+	
+
+<!-------SELECTION OF SEMESTER & ROLL NO ----------->
+
+	<div class="container" align="center">
+		<div class="data">
+		<div>
+			<label>COLLEGE ID </label><br>
+			<input type="text" name="ROLL NO:" placeholder="COLLEGE ID" id ="roll">
+		</div>
+		<div>
+			<label for="sem">SEMESTER</label><br>
+			<select name="sem" id="semester">
+			<option value="I" >I</option>
+			<option value="II" >II</option>
+			<option value="III" >III</option>
+			</select>
+		</div>
+		<br><button onclick="GetResult()">
+		Click Me
+		</button>
+		<br><br><div id="result-content"></div>
+	</div>
+	</div>
+
+	<div align="center">
+		<img src= "images/BB.jpg" width="200px" height="150px">
+
+	</div>
+
+	
+	<!--h2 class="NOLAN" style="color: #808080;">INSPIRED BY CHRISTOPHER NOLAN</h2--->
+
+	<!--img class="in" src="i.png" href="https://www.instagram.com/unexpected_memers/"--->
+	<script>
+		function GetId(name,data){
+			for (var i = 0; i < data.length; i++) {
+				if(data[i][0] == name)
+				{
+					return [data[i][1],data[i][2]];
+				}
+			}
+			return [0,0];
+		}
+		function GetResult() {
+			var name =  document.getElementById("roll").value;
+			var sem = document.getElementById('semester').value;
+			if(sem == 'I')
+			{
+				var Points = GetId(name,mydata1);
+			}
+			else if(sem =='II')
+			{
+				var Points = GetId(name,mydata2);
+			}
+			else
+			{
+				var Points = GetId(name,mydata3);
+			}
+			if(Points[0] == 0)
+			{
+				var Msg = "<span style='color:red'>Sorry Can't Find Your Results</span>"
+			}
+			else{
+				var Msg = "<span style='background-color:black;color:white'>" + "SGPA:"+Points[0] + "</span><br><br>"+"<span style='background-color:black;color:white'> " + "CGPA:"+Points[1] + "</span>";
+			}
+			document.getElementById("result-content").innerHTML = Msg
+
+		}
+	</script>
+
+</body>
+</html>

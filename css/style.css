@@ -1,0 +1,106 @@
+body{
+		background-image:url('images/BB.jpg');
+	}
+.data{
+
+		margin-top: 125px;
+		border-radius: 25px;
+		box-shadow: 1px;
+		padding-top: 50px;
+		padding-left: 10px;
+		padding-right: 10px;
+		background-color: white;
+		color: black;
+		opacity: 80%;
+		font-family: 'Lexend Zetta', sans-serif;
+		font-weight: bolder;
+		width : 500px;
+		height :400px;	
+	}	
+label{
+	color: black;
+	margin:5px;
+}
+
+.in{
+	margin-left:1515px;
+	margin-top: 100px;
+	width: 30px;
+	height: 30px;
+}
+
+#b1{
+
+}
+
+h2
+{
+	font-family: 'Cinzel', serif;
+	color: #B4BCC7;
+}
+
+
+.NOLAN {
+	color: #808080;
+	margin-top: 50px;
+	margin-left: 67px;
+	letter-spacing: 27px;
+  	color: #ffffff;
+  	font-family:'Lexend Zetta', sans-serif; 
+}
+span{
+
+	padding: 10px;
+	margin: 5px;
+	
+}
+@media(min-width: 1200px){
+	.container
+	{
+
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1199px){
+	.container
+	{
+	}
+	.data
+	{
+	}
+}
+@media (min-width: 767px) and (max-width: 991px){
+	.container
+	{
+	}
+}
+@media(min-width: 479px) and (max-width: 766px){
+	body
+	{
+		background-image: no-repeat;
+	}
+	.container
+	{
+		
+	}
+	input
+	{
+		width:300px;
+	}
+	.data
+	{
+		width:auto;
+	}
+}
+@media(min-width: 200px) and (max-width:478px){
+	.container {
+	}
+	.data
+	{
+		width:auto;
+	}
+	input
+	{
+		width: 250px;
+	}
+}

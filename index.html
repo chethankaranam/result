@@ -55,7 +55,7 @@
     var Result = [Data1,Data2,Data3];
 
     function GetRes() {
-        var roll = document.getElementById("roll").value;
+        var roll = document.getElementById("roll").value.toUpperCase();
         var dept = document.getElementById("dept").value;
         var sem = document.getElementById("sem").value;
         var dept_id = parseInt(Departments.indexOf(dept));

@@ -71,7 +71,7 @@
         }
         if(points!=undefined){
           var per = parseFloat(points[1])*9.5;
-          var msg = "<span id='result'>SGPA : "+points[0]+"</span><span id='result'>CGPA : "+points[1]+"</span><span id ='result'>% : "+per+"</span>";
+          var msg = "<span id='result'>SGPA : "+points[0]+"</span><span id='result'>CGPA : "+points[1]+"</span><span id ='result'>% : "+per.toFixed(2)+"</span>";
           document.getElementById("result-content").innerHTML = msg;
         }
         else if(roll.length<10)

@@ -1,94 +1,91 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>MITS RESULTS</title>
-	<link rel="icon" href="images/BB.jpg" type="image/icon type">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link href="https://fonts.googleapis.com/css2?family=Lexend+Zetta&family=Raleway&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
-	<script src="js/1-1_Sem.js"></script>
-	<script src="js/1-2_Sem.js"></script>
-	<script src="js/2-1_Sem.js"></script>
-	<script src="js/jquery-2.1.4.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	
+  <link rel="icon" href='images/icon.jpg' type="image/icon type">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Antic+Slab&family=Julius+Sans+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <title>RESULTS</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="js/jquery-2.1.4.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  
 </head>
-<body style="background-image:url(images/BB.jpg);">
+<body>
 
-	
+  <section class="login-page">
+  	 <form>
+  	 	 <div class="box">
+  	 	 	   <div class="form-head">
+  	 	 	   	  <h2>RESULTS</h2>
+  	 	 	   </div>
+  	 	 	   <div class="form-body">
+  	 	 	   	 <input type="text" placeholder="ROLL NO" id="roll" />
+             <select name="DEPARTMENT" id="dept">
+              <option value="" disabled selected hidden>DEPARTMENT</option>
+              <option value="CSE" >CSE</option>
+              <option value="ECE" >ECE</option>
+              <option value="EEE" >EEE</option>
+              <option value="MECH" >MECH</option>
+              <option value="CST" >CST</option>
+              <option value="CSIT">CSIT</option>
+              <option value="CIVIL">CIVIL</option>
+            </select>
+    	 	 	   	<select name="SEMESTER" id="sem">
+                <option value="" disabled selected hidden>SEMESTER</option>
+                <option value="I" >I</option>
+                <option value="II" >II</option>
+                <option value="III" >III</option>   
+              </select>
+  	 	 	  </div>
+  	 	 	  <div class="form-footer">
+  	 	 	   	  <input type="button" value="result" onclick="GetRes()">
+  	 	 	  </div>
+          <div id="result-content">
+            
+          </div>
+  	 	 </div>
+  	 </form>
+  </section>
+  <script src="js/ECMA.js"></script>
+  <script>
+    var Departments = ['CIVIL','EEE','MECH','ECE','CSE','CSIT','CST'];
+    var Semesters = ['I','II','III'];
+    var Result = [Data1,Data2,Data3];
 
-<!-------SELECTION OF SEMESTER & ROLL NO ----------->
+    function GetRes() {
+        var roll = document.getElementById("roll").value;
+        var dept = document.getElementById("dept").value;
+        var sem = document.getElementById("sem").value;
+        var dept_id = parseInt(Departments.indexOf(dept));
+        var sem_id = parseInt(Semesters.indexOf(sem));
+        //console.log(Result[sem_id][0]);
+        try{
+          var points = Result[sem_id][0][dept_id][0][roll];
+        }
+        catch(e)
+        {
+         var msg = "<span id='error'>SORRY CAN'T FIND YOUR RESULTS</span>"; 
+         document.getElementById("result-content").innerHTML = msg;
+        }
+        if(points!=undefined){
+          var per = parseFloat(points[1])*9.5;
+          var msg = "<span id='result'>SGPA : "+points[0]+"</span><span id='result'>CGPA : "+points[1]+"</span><span id ='result'>% : "+per+"</span>";
+          document.getElementById("result-content").innerHTML = msg;
+        }
+        else if(roll.length<10)
+        {
+          var msg = "<span id='error'>INVALID USERNAME</span>"; 
+          document.getElementById("result-content").innerHTML = msg; 
+        }
+        else
+        {
+          var msg = "<span id='error'>SORRY CAN'T FIND YOUR RESULTS</span>"; 
+          document.getElementById("result-content").innerHTML = msg;
 
-	<div class="container" align="center">
-		<div class="data">
-		<div>
-			<label>COLLEGE ID </label><br>
-			<input type="text" name="ROLL NO:" placeholder="COLLEGE ID" id ="roll">
-		</div>
-		<div>
-			<label for="sem">SEMESTER</label><br>
-			<select name="sem" id="semester">
-			<option value="I" >I</option>
-			<option value="II" >II</option>
-			<option value="III" >III</option>
-			</select>
-		</div>
-		<br><button onclick="GetResult()">
-		Get Result
-		</button>
-		<br><br><div id="result-content"></div>
-	</div>
-	</div>
-
-	<div align="center">
-		<img src= "images/BB.jpg" width="200px" height="150px">
-
-	</div>
-
-	
-	<!--h2 class="NOLAN" style="color: #808080;">INSPIRED BY CHRISTOPHER NOLAN</h2--->
-
-	<!--img class="in" src="i.png" href="https://www.instagram.com/unexpected_memers/"--->
-	<script>
-		function GetId(name,data){
-			for (var i = 0; i < data.length; i++) {
-				if(data[i][0] == name)
-				{
-					return [data[i][1],data[i][2]];
-				}
-			}
-			return [0,0];
-		}
-		function GetResult() {
-			var name =  document.getElementById("roll").value;
-			var sem = document.getElementById('semester').value;
-			if(sem == 'I')
-			{
-				var Points = GetId(name,mydata1);
-			}
-			else if(sem =='II')
-			{
-				var Points = GetId(name,mydata2);
-			}
-			else
-			{
-				var Points = GetId(name,mydata3);
-			}
-			if(Points[0] == 0)
-			{
-				var Msg = "<span style='color:red'>Sorry Can't Find Your Results</span>"
-			}
-			else{
-				var Msg = "<span style='background-color:black;color:white'>" + "SGPA:"+Points[0] + "</span><br><br>"+"<span style='background-color:black;color:white'> " + "CGPA:"+Points[1] + "</span>";
-			}
-			document.getElementById("result-content").innerHTML = Msg
-
-		}
-	</script>
-
+        }
+    }
+  </script>
 </body>
 </html>

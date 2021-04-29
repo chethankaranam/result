@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="icon" href='images/icon.jpg' type="image/icon type">
+  <link rel="icon" href='icon.jpg' type="image/icon type">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Antic+Slab&family=Julius+Sans+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
   <title>RESULTS</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <script src="js/jquery-2.1.4.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  
+  <script src="js/Result.js"></script>
 </head>
 <body>
 
@@ -22,22 +20,13 @@
   	 	 	   </div>
   	 	 	   <div class="form-body">
   	 	 	   	 <input type="text" placeholder="ROLL NO" id="roll" />
-             <select name="DEPARTMENT" id="dept">
-              <option value="" disabled selected hidden>DEPARTMENT</option>
-              <option value="CSE" >CSE</option>
-              <option value="ECE" >ECE</option>
-              <option value="EEE" >EEE</option>
-              <option value="MECH" >MECH</option>
-              <option value="CST" >CST</option>
-              <option value="CSIT">CSIT</option>
-              <option value="CIVIL">CIVIL</option>
-            </select>
-    	 	 	   	<select name="SEMESTER" id="sem">
+    	 	 	   <select name="SEMESTER" id="sem">
                 <option value="" disabled selected hidden>SEMESTER</option>
                 <option value="I" >I</option>
                 <option value="II" >II</option>
                 <option value="III" >III</option>   
-              </select>
+                <option value="IV">IV</option>
+             </select>
   	 	 	  </div>
   	 	 	  <div class="form-footer">
   	 	 	   	  <input type="button" value="result" onclick="GetRes()">
@@ -48,44 +37,6 @@
   	 	 </div>
   	 </form>
   </section>
-  <script src="js/ECMA.js"></script>
-  <script>
-    var Departments = ['CIVIL','EEE','MECH','ECE','CSE','CSIT','CST'];
-    var Semesters = ['I','II','III'];
-    var Result = [Data1,Data2,Data3];
-
-    function GetRes() {
-        var roll = document.getElementById("roll").value.toUpperCase();
-        var dept = document.getElementById("dept").value;
-        var sem = document.getElementById("sem").value;
-        var dept_id = parseInt(Departments.indexOf(dept));
-        var sem_id = parseInt(Semesters.indexOf(sem));
-        //console.log(Result[sem_id][0]);
-        try{
-          var points = Result[sem_id][0][dept_id][0][roll];
-        }
-        catch(e)
-        {
-         var msg = "<span id='error'>SORRY CAN'T FIND YOUR RESULTS</span>"; 
-         document.getElementById("result-content").innerHTML = msg;
-        }
-        if(points!=undefined){
-          var per = parseFloat(points[1])*9.5;
-          var msg = "<span id='result'>SGPA : "+points[0]+"</span><span id='result'>CGPA : "+points[1]+"</span><span id ='result'>% : "+per.toFixed(2)+"</span>";
-          document.getElementById("result-content").innerHTML = msg;
-        }
-        else if(roll.length<10)
-        {
-          var msg = "<span id='error'>INVALID USERNAME</span>"; 
-          document.getElementById("result-content").innerHTML = msg; 
-        }
-        else
-        {
-          var msg = "<span id='error'>SORRY CAN'T FIND YOUR RESULTS</span>"; 
-          document.getElementById("result-content").innerHTML = msg;
-
-        }
-    }
-  </script>
 </body>
 </html>
+

@@ -13,6 +13,7 @@ function GetRes() {
         var roll = document.getElementById("roll").value.toUpperCase();
         var sem = document.getElementById("sem").value;
         var sem_id = Semesters.indexOf(sem);
+        console.log(roll);
         var points;
         try{
            points = GetResult(roll,sem_id);

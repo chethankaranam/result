@@ -15,7 +15,7 @@ function GetRes() {
         var sem_id = parseInt(Semesters.indexOf(sem));
         var points;
         try{
-           points = GetResult(roll,sem_id);
+           points = GetResult(roll.toUpperCase(),sem_id);
         }
         catch(e)
         {

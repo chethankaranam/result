@@ -10,12 +10,12 @@ result = [Data1,Data2,Data3,Data4];
 var Semesters = ['I','II','III','IV'];
 function GetRes() {
 
-        var roll = document.getElementById("roll").value;
+        var roll = document.getElementById("roll").value.toUpperCase();
         var sem = document.getElementById("sem").value;
-        var sem_id = parseInt(Semesters.indexOf(sem));
+        var sem_id = Semesters.indexOf(sem);
         var points;
         try{
-           points = GetResult(roll.toUpperCase(),sem_id);
+           points = GetResult(roll,sem_id);
         }
         catch(e)
         {

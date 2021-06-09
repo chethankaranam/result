@@ -15,7 +15,7 @@ function GetRes(){
         }
         var points = GetResult(roll,sem_id);
         if(points!=undefined){
-          var per = parseFloat(points[1])*9.5;
+          var per = (parseFloat(points[1])-0.5)*10;
           var msg = "<span id='result'>SGPA : "+points[0]+"</span><span id='result'>CGPA : "+points[1]+"</span><span id ='result'>% : "+Math.round(per)+"</span>";
           document.getElementById("result-content").innerHTML = msg;
         }

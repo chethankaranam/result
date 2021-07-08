@@ -11,7 +11,7 @@ body{
 .login-page{
 	background-image: url('../images/bg.jpg');
 	background-size: cover;
-	height: 150vh;
+	height: 120vh;
 	position: relative;
 }
 .login-page:after{

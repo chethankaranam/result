@@ -25,18 +25,76 @@
                 <option value="II" >II</option>
                 <option value="III" >III</option>   
                 <option value="IV">IV</option>
-               <option value="V">V</option>
+                <option value="V">V</option>
              </select>
   	 	 	  </div>
   	 	 	  <div class="form-footer">
   	 	 	   	  <input type="button" value="result" onclick="GetRes()">
   	 	 	  </div>
-          <div id="result-content">
-            
-          </div>
+          <div id="result-content" class="bottom-marg"></div>
+          <div id='analytics' class="bottom-marg"></div>
+          <div id="chartContainer" style="" class="bottom-marg"></div>
+          <div id="chartContainer1" style="" class="bottom-marg"></div>
   	 	 </div>
   	 </form>
   </section>
 </body>
+<script src="js/canvasjs.min.js"></script>
+<script type="text/javascript">
+function chart() {
+    var dataPoints_grades =  points();
+  document.getElementById("chartContainer").style.height = "200px";
+  document.getElementById("chartContainer1").style.height = "200px";
+var charter = new CanvasJS.Chart("chartContainer", {
+  animationEnabled: true,
+  backgroundColor:"gray",
+  theme: "light2",
+  title:{
+    text: "CGPA Analysis",
+    fontColor:"black",
+    fontFamily: 'Julius Sans One'
+  },
+   axisY:{
+   labelFontColor: "black",
+ },
+ axisX:{
+   labelFontColor: "black",
+ },
+  data: [{        
+    type: "line",
+    lineColor:"black",
+    markerColor:"#f44336",
+        indexLabelFontSize: 16,
+    dataPoints: dataPoints_grades[0]
+  }]
+});
+charter.render();
+
+var charter1 = new CanvasJS.Chart("chartContainer1", {
+  animationEnabled: true,
+  backgroundColor:"gray",
+  theme: "light2",
+  title:{
+    text: "SGPA Analysis",
+    fontColor:"black",
+    fontFamily: 'Julius Sans One'
+  },
+   axisY:{
+   labelFontColor: "black",
+ },
+ axisX:{
+   labelFontColor: "black",
+ },
+  data: [{        
+    type: "line",
+    lineColor:"black",
+    markerColor:"#f44336",
+        indexLabelFontSize: 16,
+    dataPoints: dataPoints_grades[1]
+  }]
+});
+charter1.render();
+};
+</script>
 </html>
 

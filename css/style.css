@@ -3,7 +3,7 @@ body{
 	padding: 0;
 	font-family: 'Julius Sans One', sans-serif;
 	background-image: url('../images/bg.jpg');
-	background-attachment: ;
+	background-size: auto;
 }
 *{
 	box-sizing: border-box;
@@ -13,6 +13,7 @@ body{
 .login-page{
 	height: 100%;
 	padding-top: 150px;
+
 }
 .login-page:after{
 content: '';
@@ -87,10 +88,10 @@ transition:box-shadow .5s ease;
 	flex-flow: row;
 	width: 100%;
 	height: 100vh;
+	background-color: rgba(0,0,0,.5);
 }
 .main section{
 	width: 50%;
-	background-color: rgba(0,0,0,.5);
 
 }
 .charts{

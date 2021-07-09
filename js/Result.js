@@ -7,6 +7,7 @@ function GetRes(){
 			document.getElementById("result-content").innerHTML = " ";
 			document.getElementById("chartContainer").innerHTML = " ";
 			document.getElementById("chartContainer1").innerHTML = " ";
+			document.getElementById("analytics").innerHTML = " ";
         roll = document.getElementById("roll").value.toUpperCase();
         sem = document.getElementById("sem").value;
         var sem_id = Semesters.indexOf(sem);
@@ -21,9 +22,7 @@ function GetRes(){
           var per = parseFloat(points[1])*9.5;
           var msg = "<span id='result'>SGPA : "+points[0]+"</span><span id='result'>CGPA : "+points[1]+"</span><span id ='result'>% : "+Math.round(per)+"</span>";
           document.getElementById("result-content").innerHTML = msg;
-          var msg11 = "<div class='form-footer'>"+
-  	 	 	   	  "<input type='button' value='My Analytics' onclick='chart()'>"+
-  	 	 	  "</div>";
+          var msg11 =  "<input type='button' value='My Analytics' onclick='chart()'>"
   	 	  document.getElementById("analytics").innerHTML = msg11;
         }
         else

@@ -2,6 +2,8 @@ body{
 	margin:0;
 	padding: 0;
 	font-family: 'Julius Sans One', sans-serif;
+	background-image: url('../images/bg.jpg');
+	background-attachment: ;
 }
 *{
 	box-sizing: border-box;
@@ -9,32 +11,35 @@ body{
 }
 
 .login-page{
+<<<<<<< HEAD
+	height: 100%;
+	padding-top: 150px;
+
+=======
 	background-image: url('../images/bg.jpg');
 	background-size: cover;
 	height: 120vh;
 	position: relative;
+>>>>>>> fd50b33fd1f6164d887d901ef30f99bd7e5c98d9
 }
 .login-page:after{
 content: '';
-position: absolute;
-left: 0px;
-top: 0px;
-height: 100%;
-width: 100%;
-background-color: rgba(0,0,0,.5);
+position: relative;		
+width: 50%;
 z-index: 1;
 }
 .login-page .box{
-	position: absolute;
-	left: 50%;
+	position: relative;
+	left: 10%;
 	top: 50%;
-	transform: translate(-50%,-50%);
 	display: flex;
 	flex-direction: column;
-	width: 280px;
+	width: 70%;
 	z-index: 2;
 }
+.login-page .box:after{
 
+}
 .login-page .box .form-head h2{
 font-family: 'Julius Sans One', sans-serif;
 text-align: center;
@@ -84,6 +89,21 @@ transition:box-shadow .5s ease;
 }
 .login-page .box .form-footer input:hover{
 	box-shadow: 0px 0px 10px black;
+}
+.main {
+	display: flex;
+	flex-flow: row;
+	width: 100%;
+	height: 100vh;
+}
+.main section{
+	width: 50%;
+	background-color: rgba(0,0,0,.5);
+
+}
+.charts{
+	padding: 20px;
+	padding-top: 100px;
 }
 option
 {
@@ -139,10 +159,41 @@ span
 	color: red;
 	padding-bottom: 3px;
 }
-@media(max-width: 479px)
+@media(max-width: 1000px)
 {
-	.login-page .box{
+	#result-content{
+		flex-flow: column;
+	}
+	#error
+	{
+		font-size: 13px;
+		padding-bottom: 4px;
+		height:40%;
+	}
+	#result
+	{
 		width: 65%;
+		margin-bottom: 10px;
+	}
+	.login-page .box{
+		width: 70%;
+		left: 15%;
+	}
+	.main section{
+		padding-top: 100px;
+	}
+	.charts{
+		padding-top:150px ;
+	}
+}
+@media(max-width: 768px)
+{
+	.login-page{
+		padding-top: 150px;
+	}
+	.login-page .box{
+		width: 70%;
+		left: 15%;
 	}
 	#result-content{
 		flex-flow: column;
@@ -157,6 +208,17 @@ span
 	{
 		width: 65%;
 		margin-bottom: 10px;
+	}
+	.main{
+		display: flex;
+		flex-flow: column;
+	}
+	.main section{
+		width: 100%;
+	}
+	.charts{
+		padding: 20px;
+		padding-top: 20px !important;
 	}
 }
 .bottom-marg{

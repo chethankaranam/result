@@ -55,8 +55,8 @@ function points()
 	cgpa_data = [];
 	sgpa_data = [];
 	for(i=0;i<leng;i++){
-		cgpa_data.push({y:cgpa[i]});
-		sgpa_data.push({y:sgpa[i]});
+		cgpa_data.push({x:i+1,y:cgpa[i]});
+		sgpa_data.push({x:i+1,y:sgpa[i]});
 	}
 	console.log(cgpa_data);
 	console.log(sgpa_data);

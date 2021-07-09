@@ -10,6 +10,7 @@
   <script src="js/Result.js"></script>
 </head>
 <body>
+  <section class="main">
 
   <section class="login-page">
   	 <form>
@@ -32,33 +33,50 @@
   	 	 	   	  <input type="button" value="result" onclick="GetRes()">
   	 	 	  </div>
           <div id="result-content" class="bottom-marg"></div>
-          <div id='analytics' class="bottom-marg"></div>
-          <div id="chartContainer" style="" class="bottom-marg"></div>
-          <div id="chartContainer1" style="" class="bottom-marg"></div>
+          <div id='analytics' class="bottom-marg form-footer" ></div>
   	 	 </div>
   	 </form>
   </section>
+  <section class="charts">
+      <div id="chartContainer" style="" class="bottom-marg"></div>
+      <div id="chartContainer1" style="" class="bottom-marg"></div>
+  </section>
+</section>
 </body>
 <script src="js/canvasjs.min.js"></script>
 <script type="text/javascript">
 function chart() {
     var dataPoints_grades =  points();
-  document.getElementById("chartContainer").style.height = "200px";
-  document.getElementById("chartContainer1").style.height = "200px";
+  document.getElementById("chartContainer").style.height = "220px";
+  document.getElementById("chartContainer1").style.height = "220px";
+  document.getElementById("chartContainer").style.width = "100%";
+  document.getElementById("chartContainer1").style.width = "100%";
 var charter = new CanvasJS.Chart("chartContainer", {
   animationEnabled: true,
   backgroundColor:"gray",
   theme: "light2",
+  toolTip:{
+  backgroundColor: "#f4d5a6",
+  content:"{x}_CGPA:{y}"
+ },
   title:{
     text: "CGPA Analysis",
     fontColor:"black",
     fontFamily: 'Julius Sans One'
   },
    axisY:{
-   labelFontColor: "black",
+    titleFontFamily: 'Julius Sans One',
+   titleFontColor:"white",
+      title:"GPA",
+      labelFontColor:"black",
+      interval:0.5
  },
  axisX:{
-   labelFontColor: "black",
+   titleFontFamily: 'Julius Sans One',
+   titleFontColor:"white",
+   title:"Semester No.",
+   labelFontColor:"black",
+   interval:1.0
  },
   data: [{        
     type: "line",
@@ -74,22 +92,35 @@ var charter1 = new CanvasJS.Chart("chartContainer1", {
   animationEnabled: true,
   backgroundColor:"gray",
   theme: "light2",
+  toolTip:{
+  backgroundColor: "#f4d5a6",
+  content:"{x}_SGPA:{y}"
+ },
   title:{
     text: "SGPA Analysis",
     fontColor:"black",
     fontFamily: 'Julius Sans One'
   },
    axisY:{
-   labelFontColor: "black",
+    titleFontFamily: 'Julius Sans One',
+   titleFontColor:"white",
+      title:"GPA",
+      labelFontColor:"black",
+      interval:0.5
  },
  axisX:{
-   labelFontColor: "black",
+   titleFontFamily: 'Julius Sans One',
+   titleFontColor:"white",
+   title:"Semester No.",
+   labelFontColor:"black",
+   interval:1.0
  },
   data: [{        
     type: "line",
     lineColor:"black",
     markerColor:"#f44336",
         indexLabelFontSize: 16,
+
     dataPoints: dataPoints_grades[1]
   }]
 });

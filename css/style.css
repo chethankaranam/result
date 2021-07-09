@@ -11,16 +11,8 @@ body{
 }
 
 .login-page{
-<<<<<<< HEAD
 	height: 100%;
 	padding-top: 150px;
-
-=======
-	background-image: url('../images/bg.jpg');
-	background-size: cover;
-	height: 120vh;
-	position: relative;
->>>>>>> fd50b33fd1f6164d887d901ef30f99bd7e5c98d9
 }
 .login-page:after{
 content: '';

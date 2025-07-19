@@ -1,10 +1,5 @@
 # 📊 Student Grade Tracker Web App
-[![License: MIT](https://img.shields.io/github/license/your-username/student-grade-tracker)](./LICENSE)
-![Repo Size](https://img.shields.io/github/repo-size/your-username/student-grade-tracker)
-![Top Language](https://img.shields.io/github/languages/top/your-username/student-grade-tracker)
-![Last Commit](https://img.shields.io/github/last-commit/your-username/student-grade-tracker)
-![GitHub Stars](https://img.shields.io/github/stars/your-username/student-grade-tracker?style=social)
-![GitHub Forks](https://img.shields.io/github/forks/your-username/student-grade-tracker?style=social)
+
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)
 ![HTML5](https://img.shields.io/badge/HTML5-%23E34F26.svg?logo=html5&logoColor=white)
